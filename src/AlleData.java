@@ -4,11 +4,24 @@ import java.util.List;
 
 public class AlleData {
 
-    ArrayList<String> studentList = new ArrayList<String>();
 
+    ArrayList<Student> studentList;
 
-    public static void addStudent(String FirstName, String LastName) {
-        studentList.add
-
+    public AlleData() {
+        this.studentList = new ArrayList<Student>();
     }
+
+    //Getters
+    public ArrayList<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void addStudent(Student s) {
+        studentList.add(s);
+    }
+
+    public void removeStudent(Student s) {
+        studentList.remove(s);
+    }
+
 }

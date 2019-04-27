@@ -4,50 +4,63 @@ import java.util.Scanner;
 
 public class Student {
 
-    private static String FirstName;
-    private static String LastName;
-    private static int StudentID = 000000;
+
+    String FirstName;
+    String LastName;
+    int StudentID;
+
 
     //Arraylist
     ArrayList<String> ListOfStudents = new ArrayList<String>();
 
     //Constructor
-    public Student(String FirstName, String LastName, int StudentID) {
-        this.FirstName = FirstName;
-        this.LastName = LastName;
-        this.StudentID = StudentID;
+    public Student() {
+        CreateStudent();
     }
 
+    //Getters
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public int getStudentID() {
+        return StudentID;
+    }
+
+
         // Student aanmaken
-        public static void CreateStudent () {
-            Scanner Reader = new Scanner(System.in);
+        public void CreateStudent () {
+            Scanner reader = new Scanner(System.in);
 
             //Voornaam invoeren
             System.out.print("U wilt een student toevoegen. Wat is zijn/haar voornaam? ");
-            FirstName = Reader.nextLine();
+            this.FirstName = reader.nextLine();
 
             //Achternaam invoeren
-            System.out.println("Wat is zijn/haar achternaam? ");
-            LastName = Reader.nextLine();
+            System.out.print("Wat is zijn/haar achternaam? ");
+            this.LastName = reader.nextLine();
+            System.out.println();
 
             //ID aanmaken
-            setStudentID();
+            IDGenerator studentIDGenerator = new IDGenerator();
+            studentIDGenerator.generateID();
+            this.StudentID = studentIDGenerator.generateID();
 
             // Bevestiging/terugkoppeling
-            System.out.print("U heeft de volgende student aangemaakt: ");
-            System.out.println(FirstName + " " + LastName + ", hij/zij heeft het studentnummer " + StudentID + " toegewezen gekregen.");
+            System.out.println("U heeft de volgende student aangemaakt: ");
+            System.out.println(FirstName + " " + LastName + ", hij/zij heeft het studentnummer " + StudentID + " toegewezen gekregen. \n" );
 
             // Student toevoegen aan ArrayList
-            AlleData.addStudent(FirstName, LastName);
 
-            // Terug naar menu
-            Menu.ShowMenu();
+
+
+
         }
 
-        //ID verhogen
-    private static void setStudentID() {
-            StudentID++;
-    }
 
 
 
