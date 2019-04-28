@@ -9,10 +9,6 @@ public class Student {
     String LastName;
     int StudentID;
 
-
-    //Arraylist
-    ArrayList<String> ListOfStudents = new ArrayList<String>();
-
     //Constructor
     public Student() {
         CreateStudent();
@@ -50,18 +46,9 @@ public class Student {
             studentIDGenerator.generateID();
             this.StudentID = studentIDGenerator.generateID();
 
+
             // Bevestiging/terugkoppeling
             System.out.println("U heeft de volgende student aangemaakt: ");
             System.out.println(FirstName + " " + LastName + ", hij/zij heeft het studentnummer " + StudentID + " toegewezen gekregen. \n" );
-
-            // Student toevoegen aan ArrayList
-
-
-
-
         }
-
-
-
-
 }
